@@ -2,6 +2,9 @@ TodoList
 ==============
 Minimalistic yet comprehensive TodoList. This project was inspired by Szwacz's [Electron Boilerplate](https://github.com/szwacz/electron-boilerplate), [FromScratch](https://fromscratch.rocks), and [Electron](http://electron.atom.io). I wanted an HTML TodoList that I made, but could use it as a desktop application. Since HTML, jQuery, AngularJS, PHP, and more have all been insirations to my coding career. 
 
+## Changes or things to do?
+I have made a [TodoList](https://github.com/cjerrington/TodoList/blob/master/Todo.md) for my TodoList, or you can create an [issue](https://github.com/cjerrington/TodoList/issues).
+
 # Quick start
 The only development dependency of this project is [Node.js](https://nodejs.org). So just make sure you have it installed.
 Then type few commands known to every Node developer...
