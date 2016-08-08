@@ -1,0 +1,14 @@
+{
+  "name": "TodoList-dev",
+  "productName": "Todo List Dev",
+  "description": "Simple Todo List for your everyday needs",
+  "version": "0.0.1",
+  "author": "Clayton Errington <me@claytonerrington.com>",
+  "copyright": "© 2016, Clayton errington",
+  "homepage": "http://claytonerrington.com",
+  "license": "MIT",
+  "main": "background.js",
+  "dependencies": {
+    "fs-jetpack": "^0.9.0"
+  }
+}

@@ -1,24 +1,21 @@
-TodoList
+electron-boilerplate
 ==============
-Minimalistic yet comprehensive TodoList. This project was inspired by Szwacz's [Electron Boilerplate](https://github.com/szwacz/electron-boilerplate), [FromScratch](https://fromscratch.rocks), and [Electron](http://electron.atom.io). I wanted an HTML TodoList that I made, but could use it as a desktop application. Since HTML, jQuery, AngularJS, PHP, and more have all been insirations to my coding career. 
+Minimalistic yet comprehensive boilerplate application for [Electron runtime](http://electron.atom.io).  
 
-## Changes or things to do?
-I have made a [TodoList](https://github.com/cjerrington/TodoList/blob/master/Todo.md) for my TodoList, or you can create an [issue](https://github.com/cjerrington/TodoList/issues).
+Provides cross-platform development environment, which works the same way on OSX, Windows and Linux, and allows you to generate ready for distribution installers of your app for those three operating systems.
+
+At the same time this boilerplate does not impose on you any framework (like Angular or React). Tries to give you only the 'electron' part of technology stack so you can pick your favorite tools for 'the actual app' part.
 
 # Quick start
 The only development dependency of this project is [Node.js](https://nodejs.org). So just make sure you have it installed.
 Then type few commands known to every Node developer...
 ```
-git clone https://github.com/cjerrington/TodoList.git
-cd TodoList
-npm install && npm start
+git clone https://github.com/szwacz/electron-boilerplate.git
+cd electron-boilerplate
+npm install
+npm start
 ```
-... and boom! You have TodoList Running!
-
-Of course if you don't want to open Terminal all the time, there are [releases too](https://github.com/cjerrington/TodoList/releases)
-
-# How to read the files?
-I have adopted [Jakub Szwacz](https://github.com/szwacz)'s Boilerplate mentioned above, I have included some of his quick start guide incase you want to edit some of the app to to undestand how to get this up and running. 
+... and boom! You have running desktop application on your screen.
 
 # Structure of the project
 
@@ -55,6 +52,55 @@ It will also download Electron runtime, and install dependencies for second `pac
 ```
 npm start
 ```
+
+### Adding npm modules to your app
+
+Remember to add your dependency to `app/package.json` file, so do:
+```
+cd app
+npm install name_of_npm_module --save
+```
+
+### Working with modules
+
+How about being future proof and using ES6 modules everywhere in your app? Thanks to [rollup](https://github.com/rollup/rollup) you can do that. It will transpile the imports to proper `require()` statements, so even though ES6 modules aren't natively supported yet you can start using them today.
+
+You can use it on those kinds of modules:
+```js
+// Modules authored by you
+import { myStuff } from './my_lib/my_stuff';
+// Node.js native
+import fs from 'fs';
+// Electron native
+import { app } from 'electron';
+// Loaded from npm
+import moment from 'moment';
+```
+
+### Including files to your project
+
+The build script copies files from `app` to `build` directory and the application is started from `build`. Therefore if you want to use any special file/folder in your app make sure it will be copied via some of glob patterns in `tasks/build/build.js`:
+
+```js
+var paths = {
+    copyFromAppDir: [
+        './node_modules/**',
+        './vendor/**',
+        './**/*.html',
+        './**/*.+(jpg|png|svg)'
+    ],
+}
+```
+
+## Unit tests
+
+electron-boilerplate has preconfigured [mocha](https://mochajs.org/) test runner with the [chai](http://chaijs.com/api/assert/) assertion library. To run the tests go with standard:
+```
+npm test
+```
+You don't have to declare paths to spec files in any particular place. The runner will search through the project for all `*.spec.js` files and include them automatically.
+
+Those tests can be plugged into [continuous integration system](https://github.com/atom/electron/blob/master/docs/tutorial/testing-on-headless-ci.md).
 
 # Making a release
 
